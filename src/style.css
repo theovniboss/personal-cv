@@ -1,0 +1,48 @@
+@import "tailwindcss";
+
+@theme{
+	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
+
+	--color-primary: #347fc4;
+	--color-primary-50: #f3f6fc;
+	--color-primary-100: #e5eef9;
+	--color-primary-200: #c6dbf1;
+	--color-primary-300: #93bde6;
+	--color-primary-400: #599bd7;
+	--color-primary-500: #347fc4;
+	--color-primary-600: #2463a5;
+	--color-primary-700: #1e4f86;
+	--color-primary-800: #1d446f;
+	--color-primary-900: #1d3b5d;
+	--color-primary-950: #13263e;
+}
+
+@layer components {
+	.bg-card{
+		background-image: linear-gradient(310deg, rgba(131, 131, 131,0.02) 0%, rgba(131, 131, 131,0.02) 13%,transparent 13%, transparent 46%,rgba(112, 112, 112,0.02) 46%, rgba(112, 112, 112,0.02) 100%),linear-gradient(21deg, rgba(18, 18, 18,0.02) 0%, rgba(18, 18, 18,0.02) 47%,transparent 47%, transparent 82%,rgba(178, 178, 178,0.02) 82%, rgba(178, 178, 178,0.02) 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+	}
+	.title{
+		@apply 
+			pb-5 z-20 text-xl font-semibold relative
+			before:absolute before:z-10 before:w-6 before:h-6 before:-left-3 before:top-1.5 before:rounded-full before:bg-radial-[at_5%_75%] before:from-primary-100 before:to-70% before:to-gray-50
+			after:absolute after:-left-10 after:bottom-0 after:h-px after:w-full after:bg-linear-to-r after:from-80% after:from-gray-300 after:to-transparent after:z-10
+
+		
+	}
+	.title span{
+		@apply text-primary relative z-10
+	}
+	.divider-x{
+		@apply flex my-2 h-px w-full bg-radial from-gray-300 to-70% to-transparent
+	}
+	.divider-y{
+		@apply block mx-2 h-full w-px bg-black bg-radial from-gray-300 to-70% to-transparent
+	}
+
+}
+
+
+body {
+	@apply h-screen w-screen flex items-center justify-center relative;
+	background-image: radial-gradient(circle at 67% 83%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 1%,transparent 1%, transparent 5%,transparent 5%, transparent 100%),radial-gradient(circle at 24% 80%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 27%,transparent 27%, transparent 63%,transparent 63%, transparent 100%),radial-gradient(circle at 23% 5%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 26%,transparent 26%, transparent 82%,transparent 82%, transparent 100%),radial-gradient(circle at 21% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 35%,transparent 35%, transparent 45%,transparent 45%, transparent 100%),radial-gradient(circle at 10% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 21%,transparent 21%, transparent 81%,transparent 81%, transparent 100%),radial-gradient(circle at 19% 61%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 20%,transparent 20%, transparent 61%,transparent 61%, transparent 100%),radial-gradient(circle at 13% 77%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 63%,transparent 63%, transparent 72%,transparent 72%, transparent 100%),radial-gradient(circle at 30% 93%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 33%,transparent 33%, transparent 82%,transparent 82%, transparent 100%),linear-gradient(90deg, rgb(0,53,102),rgb(0,29,61));
+}

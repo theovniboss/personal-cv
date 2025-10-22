@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant aria-current (&[aria-current="page"]);
+
 @theme{
 	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
 
@@ -37,6 +39,13 @@
 	}
 	.divider-y{
 		@apply block mx-2 h-full w-px bg-black bg-radial from-gray-300 to-70% to-transparent
+	}
+
+	.menu-item {
+		@apply 
+		transition duration-300
+		bg-white  rounded text-xs flex flex-col justify-center items-center w-[60px] h-[60px]
+		aria-current:text-primary aria-current:fill-primary aria-current:bg-primary-50
 	}
 
 }

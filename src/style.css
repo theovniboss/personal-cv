@@ -2,8 +2,9 @@
 
 @custom-variant aria-current (&[aria-current="page"]);
 
-@theme{
-	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" ;
+@theme {
+	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
+		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
 	--color-primary: #347fc4;
 	--color-primary-50: #f3f6fc;
@@ -17,46 +18,214 @@
 	--color-primary-800: #1d446f;
 	--color-primary-900: #1d3b5d;
 	--color-primary-950: #13263e;
+
+	--animate-wiggle: wiggle 1s ease-in-out infinite;
+	@keyframes wiggle {
+		0%,
+		100% {
+			transform: rotate(-25deg);
+		}
+		50% {
+			transform: rotate(25deg);
+		}
+	}
+
+	--animate-leftright: leftright 1s ease-in-out infinite;
+	@keyframes leftright {
+		0%,
+		100% {
+			transform: translate(-3px, 0);
+		}
+		50% {
+			transform: translate(3px, 0);
+		}
+	}
+
+	--animate-rotate: rotate 1s ease-in-out infinite;
+	@keyframes rotate {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	--animate-backInDown: backInDown 0.5s ease-in-out;
+	@keyframes backInDown {
+		0% {
+			transform: translateY(-20px) scale(0.7);
+			opacity: 0;
+		}
+
+		80% {
+			transform: translateY(0px) scale(0.7);
+			opacity: 0.7;
+		}
+
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
 }
 
-
 @layer components {
-	.bg-card{
-		background-image: linear-gradient(310deg, rgba(131, 131, 131,0.02) 0%, rgba(131, 131, 131,0.02) 13%,transparent 13%, transparent 46%,rgba(112, 112, 112,0.02) 46%, rgba(112, 112, 112,0.02) 100%),linear-gradient(21deg, rgba(18, 18, 18,0.02) 0%, rgba(18, 18, 18,0.02) 47%,transparent 47%, transparent 82%,rgba(178, 178, 178,0.02) 82%, rgba(178, 178, 178,0.02) 100%),linear-gradient(90deg, rgb(255,255,255),rgb(255,255,255));
+	.bg-card {
+		background-image: linear-gradient(
+				310deg,
+				rgba(131, 131, 131, 0.02) 0%,
+				rgba(131, 131, 131, 0.02) 13%,
+				transparent 13%,
+				transparent 46%,
+				rgba(112, 112, 112, 0.02) 46%,
+				rgba(112, 112, 112, 0.02) 100%
+			),
+			linear-gradient(
+				21deg,
+				rgba(18, 18, 18, 0.02) 0%,
+				rgba(18, 18, 18, 0.02) 47%,
+				transparent 47%,
+				transparent 82%,
+				rgba(178, 178, 178, 0.02) 82%,
+				rgba(178, 178, 178, 0.02) 100%
+			),
+			linear-gradient(90deg, rgb(255, 255, 255), rgb(255, 255, 255));
 	}
-	.title{
-		@apply 
-			pb-5 z-20 text-xl font-semibold relative
+	.title {
+		@apply pb-5 z-20 text-xl font-semibold relative
 			before:absolute before:z-10 before:w-6 before:h-6 before:-left-3 before:top-1.5 before:rounded-full before:bg-radial-[at_5%_75%] before:from-primary-100 before:to-70% before:to-gray-50
-			after:absolute after:-left-10 after:bottom-0 after:h-px after:w-full after:bg-linear-to-r after:from-80% after:from-gray-300 after:to-transparent after:z-10
-
-		
+			after:absolute after:-left-10 after:bottom-0 after:h-px after:w-full after:bg-linear-to-r after:from-80% after:from-gray-300 after:to-transparent after:z-10;
 	}
-	.title span{
-		@apply text-primary relative z-10
+	.title span {
+		@apply text-primary relative z-10;
 	}
-	.divider-x{
-		@apply flex my-2 h-px w-full bg-radial from-gray-300 to-70% to-transparent
+	.divider-x {
+		@apply flex my-2 h-px w-full bg-radial from-gray-300 to-70% to-transparent;
 	}
-	.divider-y{
-		@apply block mx-2 h-full w-px bg-black bg-radial from-gray-300 to-70% to-transparent
+	.divider-y {
+		@apply block mx-2 h-full w-px bg-radial from-gray-300 to-70% to-transparent;
 	}
 
 	.menu-item {
-		@apply 
-		transition duration-300
+		@apply transition duration-300
 		bg-white  rounded text-xs flex flex-col justify-center items-center w-[60px] h-[60px]
-		aria-current:text-primary aria-current:fill-primary aria-current:bg-primary-50
+		hover:text-primary hover:fill-primary hover:bg-gray-50
+		aria-current:text-primary aria-current:fill-primary aria-current:bg-primary-50 aria-current:font-semibold;
+	}
+
+	.after-divider-radial-x {
+		@apply after:absolute after:h-px after:w-full after:bottom-0 odd:after:-ml-5  after:bg-radial after:from-gray-300 after:to-70% after:to-transparent;
+	}
+	.before-divider-solid-y {
+		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-gray-300;
+	}
+	.before-divider-gradient-y {
+		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-linear-to-t before:from-transparent before:to-70% before:to-gray-300;
+	}
+
+	.skill-icon {
+		@apply h-10 w-10 cursor-pointer grayscale 
+		hover:grayscale-0 hover:scale-110 hover:rotate-5
+		transition duration-300;
+	}
+	.main-content{
+		@apply w-[700px] h-[620px] bg-white rounded-r-lg z-10 -left-1 shadow-lg pl-7 pr-0 py-2 ;
+	}
+	.main-content>div{
+		@apply overflow-auto w-full h-full pr-5 py-5;
+	}
+
+	.fadeinleft-enter-active{
+		@apply transition duration-500 ease-out;
+	}
+	.fadeinleft-leave-active{
+		@apply transition duration-500 ease-in;
+	}
+	.fadeinleft-enter-from, .fadeinleft-leave-to{
+		@apply opacity-0 -translate-x-100;
 	}
 
 }
 
-
 body {
 	@apply h-screen w-screen flex items-center justify-center relative;
-	background-image: radial-gradient(circle at 67% 83%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 1%,transparent 1%, transparent 5%,transparent 5%, transparent 100%),radial-gradient(circle at 24% 80%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 27%,transparent 27%, transparent 63%,transparent 63%, transparent 100%),radial-gradient(circle at 23% 5%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 26%,transparent 26%, transparent 82%,transparent 82%, transparent 100%),radial-gradient(circle at 21% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 35%,transparent 35%, transparent 45%,transparent 45%, transparent 100%),radial-gradient(circle at 10% 11%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 21%,transparent 21%, transparent 81%,transparent 81%, transparent 100%),radial-gradient(circle at 19% 61%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 20%,transparent 20%, transparent 61%,transparent 61%, transparent 100%),radial-gradient(circle at 13% 77%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 63%,transparent 63%, transparent 72%,transparent 72%, transparent 100%),radial-gradient(circle at 30% 93%, hsla(317,0%,96%,0.05) 0%, hsla(317,0%,96%,0.05) 33%,transparent 33%, transparent 82%,transparent 82%, transparent 100%),linear-gradient(90deg, rgb(0,53,102),rgb(0,29,61));
+	background-image: radial-gradient(
+			circle at 67% 83%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 1%,
+			transparent 1%,
+			transparent 5%,
+			transparent 5%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 24% 80%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 27%,
+			transparent 27%,
+			transparent 63%,
+			transparent 63%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 23% 5%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 26%,
+			transparent 26%,
+			transparent 82%,
+			transparent 82%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 21% 11%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 35%,
+			transparent 35%,
+			transparent 45%,
+			transparent 45%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 10% 11%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 21%,
+			transparent 21%,
+			transparent 81%,
+			transparent 81%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 19% 61%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 20%,
+			transparent 20%,
+			transparent 61%,
+			transparent 61%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 13% 77%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 63%,
+			transparent 63%,
+			transparent 72%,
+			transparent 72%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 30% 93%,
+			hsla(317, 0%, 96%, 0.05) 0%,
+			hsla(317, 0%, 96%, 0.05) 33%,
+			transparent 33%,
+			transparent 82%,
+			transparent 82%,
+			transparent 100%
+		),
+		linear-gradient(90deg, rgb(0, 53, 102), rgb(0, 29, 61));
 }
 
 button {
-	@apply cursor-pointer
+	@apply cursor-pointer;
 }
+

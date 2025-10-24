@@ -1,4 +1,6 @@
 <template>
+<section class="main-content">
+	<div>
 	<h2 class="title"><span>Entre</span> em Contato</h2>
 	<p class="my-5">Você tem alguma dúvida, oportunidade, projeto ou quer apenas jogar conversa fora? Me mande uma mensagem que responderei o mais rápido que puder.</p>
 	
@@ -122,8 +124,8 @@
 	</form>
 	
 
-	
- 
+	</div>
+</section>
 </template>
 <script setup>
 	import { useForm } from 'vee-validate';

@@ -1,4 +1,6 @@
 <template>
+<section class="main-content">
+	<div>
 	<article>
 		<h2 class="title"><span>Sobre</span> mim</h2>
 		<div class="flex grow">
@@ -20,11 +22,16 @@
 			</ul>
 		</div>
 	</article>
-	<article class="mt-5">
+	<article class="mt-5 flex flex-col">
 		<h2 class="title"><span>Resumo</span> Profissional</h2>
 		<p class="leading-8 py-5">
 			{{experiencia}} anos de experiência em tecnologia da informação, atuando nos últimos 7 anos como Desenvolvedor Front-End e UX, com domínio em Vue.js, .NET Core, JavaScript, PHP e SQL. Experiência sólida em SEO, análise de performance, design responsivo e integração de sistemas. Histórico de liderança técnica, equipes e entrega de soluções escaláveis para empresas de tecnologia e agências digitais.
 		</p>
+		<router-link to="resume" class="flex items-center text-xs ml-auto -mt-5 px-2 py-1 rounded text-primary fill-primary hover:bg-gray-100 transition duration-300" >
+			ver mais
+			<svg class="h-4 w-4 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18,12h0a2,2,0,0,0-.59-1.4l-4.29-4.3a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L15,11H5a1,1,0,0,0,0,2H15l-3.29,3.29a1,1,0,0,0,1.41,1.42l4.29-4.3A2,2,0,0,0,18,12Z"/></svg>
+			
+		</router-link>
 	</article>
 
 	<article class="mt-5">
@@ -54,9 +61,9 @@
 
 			</div>
 	</article>
-
+</div>
 	
-
+</section>
 </template>
 
 <script setup>

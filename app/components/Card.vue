@@ -41,9 +41,9 @@
 			before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-linear-to-t before:from-transparent before:to-70% before:to-gray-300">
 			Download CV
 		</a>
-		<RouterLink to="/contact" class="block w-full text-center p-5  text-gray-600 transition duration-300 hover:text-primary hover:bg-linear-335 hover:from-transparent hover:to-gray-50">
+		<NuxtLink to="/contact" class="block w-full text-center p-5  text-gray-600 transition duration-300 hover:text-primary hover:bg-linear-335 hover:from-transparent hover:to-gray-50">
 			Contato
-		</RouterLink>		
+		</NuxtLink>		
 	</div>
 		
 	

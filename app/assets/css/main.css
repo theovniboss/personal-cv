@@ -121,7 +121,10 @@
 		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-gray-300;
 	}
 	.before-divider-gradient-y {
-		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-linear-to-t before:from-transparent before:to-70% before:to-gray-300;
+		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-linear-to-t before:from-transparent before:to-70% before:to-gray-300;
+	}
+	.before-divider-radial-y {
+		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-radial before:from-gray-300 before:to-70% before:to-transparent;
 	}
 
 	.skill-icon {
@@ -130,7 +133,7 @@
 		transition duration-300;
 	}
 	.main-content{
-		@apply w-[700px] h-[620px] bg-white rounded-r-lg z-10 -left-1 shadow-lg pl-7 pr-0 py-2 ;
+		@apply w-[700px] h-[620px] bg-white rounded-r-lg z-10 -left-1 shadow-lg pl-7 pr-0 py-2 relative ;
 	}
 	.main-content>div{
 		@apply overflow-auto w-full h-full pr-5 py-5;
@@ -143,6 +146,7 @@
 	.fadeinleft-enter-from, .fadeinleft-leave-to{
 		@apply opacity-0 -translate-x-120;
 	}
+	
 
 }
 

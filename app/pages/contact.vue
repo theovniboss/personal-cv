@@ -69,7 +69,7 @@
 					not-placeholder-shown:pt-4
 					not-placeholder-shown:pb-1
 					autofill:pt-4
-					autofill:pb-1" placeholder="Sua Mensagem" v-model="msg" v-bind="msgAttrs" type="text" :aria-required="!!errors.msg"> </textarea>
+					autofill:pb-1" placeholder="Sua Mensagem" v-model="msg" v-bind="msgAttrs" type="text" :aria-required="!!errors.msg" />
 				<label for="mensagem" class="absolute top-0 start-0 p-3.5 h-full sm:text-sm truncate pointer-events-none transition ease-in-out duration-100 border border-transparent  origin-top-left peer-disabled:opacity-50 peer-disabled:pointer-events-none
 					peer-focus:scale-90
 					peer-focus:translate-x-0.5
@@ -82,7 +82,7 @@
 					<p class="text-[10px] text-red-800 absolute top-1 right-2">{{ errors.msg }}</p>
 			</div>
 			<div class="relative mb-4 w-[302px] h-[67px]" :class="{'border border-red-800': !!errors.captchaToken}">
-				<VueTurnstile :site-key="siteKey" v-model="captchaToken" v-bind="captchaTokenAttrs" @expired="handleExpire" />
+				<NuxtTurnstile :site-key="siteKey" v-model="captchaToken" @expired="handleExpire" />
 				<p class="text-[10px] text-red-800 absolute top-1 left-4">{{ errors.captchaToken }}</p>
 			</div>
 			<button class="group relative flex items-center cursor-pointer rounded bg-primary p-3 text-white fill-white transition duration-300
@@ -129,11 +129,12 @@
 </section>
 </template>
 <script setup>
-	import { useForm } from 'vee-validate';
-	import { object, string, setLocale  }  from 'yup';
+	//import { localize } from '@vee-validate/i18n'
+	import { toTypedSchema } from '@vee-validate/yup'
+	import { object, setLocale, string  }  from 'yup';
 	import { pt } from 'yup-locale-pt';
 	setLocale(pt);
-	import VueTurnstile from 'vue-turnstile';
+
 	import { ref } from "vue";
 	import axios from 'axios';
 	
@@ -148,12 +149,14 @@
 		initialValues:{
 			captchaToken: ''
 		},
-		validationSchema: object({
-			email: string().required().email().label("E-mail"),
-			nome: string().required().min(4).label("Nome"),
-			msg: string().required().min(10).label("Mensagem"),
-			captchaToken: string().required("Responda o desafio")
-		}),
+		validationSchema: toTypedSchema(
+			object({
+				email: string().required().email().label("E-mail"),
+				nome: string().required().min(4).label("Nome"),
+				msg: string().required().min(10).label("Mensagem"),
+				captchaToken: string().required("Responda o desafio")
+			})
+		)
 	});
 	const [nome, nomeAttrs] = defineField('nome');
 	const [email, emailAttrs] = defineField('email');
@@ -163,6 +166,7 @@
 	const handleExpire = () => {
 		setFieldValue(captchaToken, '');
 	};
+
 
 	const onSubmit = handleSubmit(values => {	
 		return sendForm().then(res=>{
@@ -183,7 +187,7 @@
 			nome: values.nome,
 			email: values.email,
 			mensagem: values.msg,
-			token: token.value
+			token: values.captchaToken
 		};
 		return new Promise((resolve, reject)=>{
 			axios.post('https://x8ki-letl-twmt.n7.xano.io/api:9BTyeE3P/send-contact',  data).then(res=>{

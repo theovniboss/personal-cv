@@ -5,7 +5,10 @@
 		</picture>
 		<div class="leading-4">
 			<p class="font-semibold">Leonardo G. Testa</p>
-			<p class="text-primary text-sm">Desenvolvedor Front-End / Full Stack</p>
+			<p class="text-primary text-sm">
+				<span class="text_1">Desenvolvedor Front End</span>
+				<span class="text_2">Desenvolvedor Full Stack</span>
+			</p>
 			<div class="flex gap-2 mt-0">
 				<a href="https://www.linkedin.com/in/theovniboss/" target="_blank" class="fill-gray-600  transition duration-300 hover:fill-primary hover:scale-90 hover:rotate-5">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="h-4 w-4">

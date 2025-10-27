@@ -6,7 +6,11 @@
 	</div>
 	<div class="mt-20 p-5 pb-0 text-center h-full flex flex-col">
 		<h1 class="text-2xl">Leonardo G. Testa</h1>
-		<p class="text-primary">Desenvolvedor Front-End / Full Stack</p>
+		<p class="text-primary">
+			<span class="text_1">Desenvolvedor Front End</span>
+			<span class="text_2">Desenvolvedor Full Stack</span>
+		</p>
+		
 		<div class="flex gap-2 justify-center mt-3">
 			<a href="https://www.linkedin.com/in/theovniboss/" target="_blank" class="fill-gray-600  transition duration-300 hover:fill-primary hover:scale-90 hover:rotate-5">
 				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640" class="h-6 w-6">
@@ -45,7 +49,4 @@
 			Contato
 		</NuxtLink>		
 	</div>
-		
-	
-
 </template>

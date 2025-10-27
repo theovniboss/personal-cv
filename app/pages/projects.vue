@@ -32,7 +32,7 @@
 			</article>
 			<div class="divider-x mt-15"></div>
 			<div class="flex flex-wrap mt-5">
-				<div class="w-full sm:w-1/2 flex flex-col pr-5 before-divider-radial-y">
+				<div class="w-full sm:w-1/2 flex flex-col sm:pr-5 before-divider-radial-y-sm">
 					<article class="flex relative flex-col items-center">
 						<img src="/images/ldicristais.webp" class="rounded shadow border border-gray-200 mb-3"
 							alt="Ldi Cristais" />
@@ -75,7 +75,8 @@
 						<p class="text-sm">Vue.Js, Javascript, Sass, Asp.net</p>
 					</article>
 				</div>
-				<div class="w-full sm:w-1/2 flex flex-col pl-5">
+				<div class="divider-x my-5 sm:hidden"></div>
+				<div class="w-full  sm:pr-5 sm:w-1/2 flex flex-col sm:pl-5">
 					<article class="flex flex-col items-center">
 						<img src="/images/beadshop.webp" class="rounded shadow border border-gray-200 mb-3" alt="Beadshop" />
 						<a href="https://www.beadshop.com.br" target="_blank" class="flex items-center font-semibold text-primary uppercase">BEADSHOP

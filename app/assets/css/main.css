@@ -144,6 +144,10 @@
 		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-radial before:from-gray-300 before:to-70% before:to-transparent;
 	}
 
+	.before-divider-radial-y-sm {
+		@apply sm:relative sm:before:absolute sm:before:h-full sm:before:w-px sm:before:right-0 sm:before:top-0 sm:before:bg-radial sm:before:from-gray-300 sm:before:to-70% sm:before:to-transparent;
+	}
+
 	.skill-icon {
 		@apply h-10 w-10 cursor-pointer grayscale 
 		hover:grayscale-0 hover:scale-110 hover:rotate-5
@@ -255,3 +259,105 @@ button {
 	@apply cursor-pointer;
 }
 
+
+.text_1 {
+	animation: text1;
+}
+
+.text_2 {
+	animation: text2;
+}
+
+.text_1,
+.text_2 {
+	overflow: hidden;
+	white-space: nowrap;
+	display: inline-block;
+	position: relative;
+	animation-duration: 15s;
+	animation-timing-function: steps(30, end);
+	animation-iteration-count: infinite;
+}
+
+.text_1::after,
+.text_2::after {
+	content: "|";
+	position: absolute;
+	right: 0;
+	animation: caret infinite;
+	animation-duration: 1s;
+	animation-timing-function: steps(1, end);
+	color: var(--color-gray-800);
+}
+
+
+
+@keyframes text2 {
+
+	0%,
+	50%,
+	100% {
+		width: 0;
+	}
+
+	60%,
+	90% {
+		width: 160px;
+	}
+}
+
+@keyframes text1 {
+	0%,
+	50%,
+	100% {
+		width: 0;
+	}
+
+	10%,
+	40% {
+		width: 160px;
+	}
+}
+
+@variant lg {
+	@keyframes text2 {
+
+	0%,
+	50%,
+	100% {
+		width: 0;
+	}
+
+	60%,
+	90% {
+		width: 190px;
+	}
+}
+
+@keyframes text1 {
+	0%,
+	50%,
+	100% {
+		width: 0;
+	}
+
+	10%,
+	40% {
+		width: 190px;
+	}
+}
+			
+}	
+
+
+@keyframes caret {
+
+	0%,
+	100% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+	}
+}

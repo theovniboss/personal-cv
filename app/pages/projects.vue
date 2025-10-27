@@ -63,7 +63,7 @@
 					<div class="divider-x my-5"></div>
 
 					<article class="flex flex-col items-center">
-						<img src="/images/SAR.webp" class="rounded shadow border border-gray-200 mb-3"
+						<img src="/images/sar.webp" class="rounded shadow border border-gray-200 mb-3"
 							alt="Sar Medicamentos Especiais" />
 						<a href="https://www.sar.com.br" target="_blank" class="flex items-center font-semibold text-primary uppercase">Sar Medicamentos Especiais
 							<svg class="ml-4 mb-1 min-w-4 h-4 text-base" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

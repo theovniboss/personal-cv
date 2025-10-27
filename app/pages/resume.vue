@@ -107,15 +107,15 @@
 
 			<article class="mt-10">
 				<h2 class="title"><span>Cursos</span> Complementares</h2>
-				<div class="flex flex-wrap">
-					<div class="relative w-[50%] py-5 after-divider-radial-x before-divider-gradient-y">
+				<div class="flex flex-wrap flex-col sm:flex-row ">
+					<div class="relative sm:w-[50%] py-5 after-divider-radial-x before-divider-gradient-y-sm">
 						<div class="flex items-center">
 							<p class="text-xs w-fit bg-gray-300 text-white p-0.5  rounded">2011</p>
 						</div>
 						<p class="mt-2">Curso de SEO</p>
 						<p class="text-primary-500 text-sm mb-2">Mestre SEO</p>
 					</div>
-					<div class="relative w-[50%] py-5 pl-5 after-divider-radial-x">
+					<div class="relative sm:w-[50%] py-5 sm:pl-5 after-divider-radial-x">
 						<div class="flex items-center">
 							<p class="text-xs w-fit bg-gray-300 text-white p-0.5  rounded">2004</p>
 						</div>
@@ -147,8 +147,8 @@
 
 			<RouterLink to="/projects">
 				<span
-					class="my-10 flex items-center pt-3 pb-2 px-3 bg-gray-200 rounded w-fit hover:bg-primary hover:text-white hover:fill-white transition duration-300">
-					Confira algus dos projetos que participei
+					class="my-10 flex items-center p-3 bg-gray-200 rounded w-fit hover:bg-primary hover:text-white hover:fill-white transition duration-300">
+					Confira alguns projetos
 					<svg class="h-6 w-6 ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
 						<path
 							d="M18,12h0a2,2,0,0,0-.59-1.4l-4.29-4.3a1,1,0,0,0-1.41,0,1,1,0,0,0,0,1.42L15,11H5a1,1,0,0,0,0,2H15l-3.29,3.29a1,1,0,0,0,1.41,1.42l4.29-4.3A2,2,0,0,0,18,12Z" />

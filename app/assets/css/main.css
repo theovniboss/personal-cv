@@ -3,6 +3,8 @@
 @custom-variant aria-current (&[aria-current="page"]);
 
 @theme {
+	
+
 	--font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif,
 		"Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
 
@@ -95,7 +97,7 @@
 	.title {
 		@apply pb-5 z-20 text-xl font-semibold relative
 			before:absolute before:z-10 before:w-6 before:h-6 before:-left-3 before:top-1.5 before:rounded-full before:bg-radial-[at_5%_75%] before:from-primary-100 before:to-70% before:to-gray-50
-			after:absolute after:-left-10 after:bottom-0 after:h-px after:w-full after:bg-linear-to-r after:from-80% after:from-gray-300 after:to-transparent after:z-10;
+			after:absolute after:-left-3 lg:after:-left-10 after:bottom-0 after:h-px after:w-full after:bg-linear-to-r after:from-80% after:from-gray-300 after:to-transparent after:z-10;
 	}
 	.title span {
 		@apply text-primary relative z-10;
@@ -107,11 +109,19 @@
 		@apply block mx-2 h-full w-px bg-radial from-gray-300 to-70% to-transparent;
 	}
 
+	.divider-menu {
+		@apply flex mx-2 w-px h-full min-w-px max-w-px  bg-radial from-gray-300 to-70% to-transparent
+			lg:h-px lg:w-full lg:my-2 lg:min-h-px lg:max-h-px lg:min-w-full lg:max-w-full lg:mx-0
+		;
+	}
+
 	.menu-item {
 		@apply transition duration-300
-		bg-white  rounded text-xs flex flex-col justify-center items-center w-[60px] h-[60px]
+		bg-white w-full rounded text-xs flex flex-col justify-center items-center  h-[60px]
 		hover:text-primary hover:fill-primary hover:bg-gray-50
-		aria-current:text-primary aria-current:fill-primary aria-current:bg-primary-50 aria-current:font-semibold;
+		aria-current:text-primary aria-current:fill-primary aria-current:bg-primary-50 aria-current:font-semibold
+		min-[702px]:w-[60px]
+		;
 	}
 
 	.after-divider-radial-x {
@@ -120,8 +130,15 @@
 	.before-divider-solid-y {
 		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-gray-300;
 	}
+
+	.before-divider-solid-y-sm {
+		@apply sm:before:absolute sm:before:h-full sm:before:w-px sm:before:right-0 sm:before:top-0 sm:before:bg-gray-300;
+	}
 	.before-divider-gradient-y {
 		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-linear-to-t before:from-transparent before:to-70% before:to-gray-300;
+	}
+	.before-divider-gradient-y-sm {
+		@apply sm:relative sm:before:absolute sm:before:h-full sm:before:w-px sm:before:right-0 sm:before:top-0 sm:before:bg-linear-to-t sm:before:from-transparent sm:before:to-70% sm:before:to-gray-300;
 	}
 	.before-divider-radial-y {
 		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-radial before:from-gray-300 before:to-70% before:to-transparent;
@@ -130,13 +147,18 @@
 	.skill-icon {
 		@apply h-10 w-10 cursor-pointer grayscale 
 		hover:grayscale-0 hover:scale-110 hover:rotate-5
+		aria-selected:grayscale-0 aria-selected:scale-110 aria-selected:rotate-5
 		transition duration-300;
 	}
 	.main-content{
-		@apply w-[700px] h-[620px] bg-white rounded-r-lg z-10 -left-1 shadow-lg pl-7 pr-0 py-2 relative ;
+		@apply  bg-white rounded shadow-lg mx-2 mb-2 w-auto h-auto	mt-[138px]
+		min-[702px]:mt-[76px] lg:mt-0
+		lg:w-[700px] lg:h-[620px] lg:z-10 lg:-left-1 lg:py-2 lg:mx-0 lg:rounded-r-lg lg:rounded-l-none lg:mb-0;
 	}
 	.main-content>div{
-		@apply overflow-auto w-full h-full pr-5 py-5;
+		@apply 
+			w-full h-full pr-3 py-5 relative pl-3
+			lg:overflow-auto lg:pl-7 lg:pr-5   ;
 	}
 
 	.fadeinleft-enter-active, .fadeinleft-leave-active{
@@ -144,14 +166,16 @@
 	}
 
 	.fadeinleft-enter-from, .fadeinleft-leave-to{
-		@apply opacity-0 -translate-x-120;
+		@apply opacity-0 lg:-translate-x-120;
 	}
 	
 
 }
 
 body {
-	@apply h-screen w-screen flex items-center justify-center relative;
+	@apply h-screen w-screen flex flex-col  relative
+		lg:flex-row lg:items-center lg:justify-center;
+
 	background-image: radial-gradient(
 			circle at 67% 83%,
 			hsla(317, 0%, 96%, 0.05) 0%,

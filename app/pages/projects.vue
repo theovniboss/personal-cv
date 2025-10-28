@@ -108,3 +108,10 @@
 		</div>
 	</section>
 </template>
+
+<script setup>
+useHead({
+  title: 'Projetos - Leonardo G. Testa | Desenvolvedor Front-End | Desenvolvedor Full Stack'
+});
+
+</script>

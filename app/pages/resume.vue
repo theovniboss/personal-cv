@@ -241,7 +241,9 @@
 
 <script setup>
 import {ref} from 'vue'
-
+useHead({
+  title: 'Resumo - Leonardo G. Testa | Desenvolvedor Front-End | Desenvolvedor Full Stack'
+});
 
 const modalOpened = ref(false);
 const toggleModal = () =>{

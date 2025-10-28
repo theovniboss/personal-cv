@@ -148,6 +148,10 @@
 
 	import { ref } from "vue";
 	import axios from 'axios';
+
+	useHead({
+		title: 'Contato - Leonardo G. Testa | Desenvolvedor Front-End | Desenvolvedor Full Stack'
+	});
 	
 	const alert = ref({
 		show:false,

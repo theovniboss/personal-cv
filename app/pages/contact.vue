@@ -83,7 +83,7 @@
 						<p class="text-[10px] text-red-800 absolute top-1 right-2">{{ errors.msg }}</p>
 				</div>
 				<div class="relative mb-4 w-[302px] h-[67px]" :class="{'border border-red-800': !!errors.captchaToken}">
-					<NuxtTurnstile :site-key="siteKey" v-model="captchaToken" @expired="handleExpire" />
+					<Turnstile :siteKey="siteKey" v-model="captchaToken" @expired="handleExpire" />
 					<p class="text-[10px] text-red-800 absolute top-1 left-4">{{ errors.captchaToken }}</p>
 				</div>
 				<button class="group relative flex items-center cursor-pointer rounded bg-primary p-3 text-white fill-white transition duration-300
@@ -140,7 +140,7 @@
 </div>
 </template>
 <script setup>
-	//import { localize } from '@vee-validate/i18n'
+	import { Turnstile } from '@sctg/turnstile-vue3';
 	import { toTypedSchema } from '@vee-validate/yup'
 	import { object, setLocale, string  }  from 'yup';
 	import { pt } from 'yup-locale-pt';
@@ -157,8 +157,10 @@
 		show:false,
 		success:false
 	});
-	const token = ref('');
-	const siteKey = import.meta.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY;
+
+	const config = useRuntimeConfig();
+
+	const siteKey = config.public.turnstileSiteKey;
 	
 	const { values, errors, meta, defineField, setFieldValue, handleSubmit, isSubmitting  } = useForm({
 		initialValues:{

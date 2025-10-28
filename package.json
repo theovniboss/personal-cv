@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --dotenv .env.development",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@nuxtjs/turnstile": "^1.1.1",
+    "@sctg/turnstile-vue3": "^1.1.0",
     "@tailwindcss/vite": "^4.1.16",
     "@vee-validate/i18n": "^4.15.1",
     "@vee-validate/nuxt": "^4.15.1",

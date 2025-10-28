@@ -158,7 +158,7 @@
 		success:false
 	});
 	const token = ref('');
-	const siteKey = import.meta.env.VITE_TURNSTILE_SITE_KEY;
+	const siteKey = import.meta.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY;
 	
 	const { values, errors, meta, defineField, setFieldValue, handleSubmit, isSubmitting  } = useForm({
 		initialValues:{

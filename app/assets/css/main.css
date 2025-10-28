@@ -103,7 +103,7 @@
 		@apply text-primary relative z-10;
 	}
 	.divider-x {
-		@apply flex my-2 h-px w-full bg-radial from-gray-300 to-70% to-transparent;
+		@apply flex my-2 min-h-px max-h-px w-full bg-radial from-gray-300 to-70% to-transparent;
 	}
 	.divider-y {
 		@apply block mx-2 h-full w-px bg-radial from-gray-300 to-70% to-transparent;
@@ -125,12 +125,14 @@
 	}
 
 	.after-divider-radial-x {
-		@apply after:absolute after:h-px after:w-full after:bottom-0 odd:after:-ml-5  after:bg-radial after:from-gray-300 after:to-70% after:to-transparent;
+		@apply after:absolute after:h-px after:min-h-px after:max-h-px after:w-full after:bottom-0 odd:after:-ml-5  after:bg-radial after:from-gray-300 after:to-70% after:to-transparent;
 	}
 	.before-divider-solid-y {
 		@apply before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-gray-300;
 	}
-
+	.before-divider-solid-y-xs {
+		@apply  min-[321px]:before:absolute  min-[321px]:before:h-full  min-[321px]:before:w-px  min-[321px]:before:right-0  min-[321px]:before:top-0  min-[321px]:before:bg-gray-300;
+	}
 	.before-divider-solid-y-sm {
 		@apply sm:before:absolute sm:before:h-full sm:before:w-px sm:before:right-0 sm:before:top-0 sm:before:bg-gray-300;
 	}
@@ -139,6 +141,9 @@
 	}
 	.before-divider-gradient-y-sm {
 		@apply sm:relative sm:before:absolute sm:before:h-full sm:before:w-px sm:before:right-0 sm:before:top-0 sm:before:bg-linear-to-t sm:before:from-transparent sm:before:to-70% sm:before:to-gray-300;
+	}
+	.before-divider-gradient-y-xs {
+		@apply min-[321px]:relative min-[321px]:before:absolute min-[321px]:before:h-full min-[321px]:before:w-px min-[321px]:before:right-0 min-[321px]:before:top-0 min-[321px]:before:bg-linear-to-t min-[321px]:before:from-transparent min-[321px]:before:to-70% min-[321px]:before:to-gray-300;
 	}
 	.before-divider-radial-y {
 		@apply relative before:absolute before:h-full before:w-px before:right-0 before:top-0 before:bg-radial before:from-gray-300 before:to-70% before:to-transparent;
@@ -155,7 +160,7 @@
 		transition duration-300;
 	}
 	.main-content{
-		@apply  bg-white rounded shadow-lg mx-2 mb-2 w-auto h-auto	mt-[138px]
+		@apply  bg-white rounded shadow-lg mx-2 mb-2 w-auto h-auto mt-[138px] relative z-0
 		min-[702px]:mt-[76px] lg:mt-0
 		lg:w-[700px] lg:h-[620px] lg:z-10 lg:-left-1 lg:py-2 lg:mx-0 lg:rounded-r-lg lg:rounded-l-none lg:mb-0;
 	}
@@ -172,12 +177,20 @@
 	.fadeinleft-enter-from, .fadeinleft-leave-to{
 		@apply opacity-0 lg:-translate-x-120;
 	}
+
+	.fade-enter-active, .fade-leave-active{
+		@apply transition-opacity duration-500 ease-in;
+	}
+
+	.fade-enter-from, .fade-leave-to{
+		@apply opacity-0;
+	}
 	
 
 }
 
 body {
-	@apply h-screen w-screen flex flex-col  relative
+	@apply h-screen w-screen flex flex-col relative
 		lg:flex-row lg:items-center lg:justify-center;
 
 	background-image: radial-gradient(

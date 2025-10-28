@@ -1,5 +1,5 @@
 <template>
-	<aside class="bg-white flex flex-wrap w-[calc(100%-16px)]  rounded-b p-[5px] mb-2 mx-2 fixed z-50 shadow
+	<aside class="bg-white flex flex-wrap w-[calc(100%-16px)]  rounded-b p-[5px] mb-2 mx-2 z-10 fixed shadow
 		md:h-[70px] lg:relative
 		lg:flex-col lg:w-[70px] lg:h-auto lg:mr-2 lg:rounded lg:mx-0
 	">

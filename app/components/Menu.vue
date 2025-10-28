@@ -1,6 +1,5 @@
 <template>
-	<nav class="flex justify-between item w-full
-		
+	<nav class="flex justify-between item w-full		
 		sm:ml-auto sm:mt-0 sm:mr-0 min-[702px]:w-auto
 		lg:flex-col">
 		<NuxtLink to="/" class="menu-item group">
